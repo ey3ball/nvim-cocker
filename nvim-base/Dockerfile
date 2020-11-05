@@ -11,7 +11,13 @@ ENV DEV_GID=$DEV_GID
 
 RUN echo "Install core dev tools" \
     && apt-get update \
-    && apt-get install -y ca-certificates curl wget git tmux fzf
+    && apt-get install -y ca-certificates curl wget git tmux fzf locales
+
+RUN echo 'en_US.UTF-8 UTF-8' >/etc/locale.gen \
+    && LANG=en_US.UTF-8 dpkg-reconfigure locales
+
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
 
 RUN echo "Install neovim" \
     && wget -q https://github.com/neovim/neovim/releases/download/v0.4.3/nvim.appimage \

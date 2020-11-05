@@ -3,7 +3,7 @@ FROM ey3ball/nvim-base
 USER root
 RUN apt-get update \
     && apt-get install -y build-essential python3-dev python3-pip \
-    && pip3 install black jedi pydocstyle flake8 mypy pylint
+    && pip3 install black jedi pydocstyle flake8 mypy pylint pynvim
 
 RUN apt-get install -y python3-venv
 ADD bashrc /tmp
