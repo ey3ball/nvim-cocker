@@ -19,6 +19,9 @@ set formatoptions=lq
 
 autocmd FileType c set noexpandtab tabstop=8 shiftwidth=8 textwidth=80
 autocmd FileType Makefile set noexpandtab
+autocmd FileType yaml set tabstop=2 shiftwidth=2 textwidth=80
+autocmd FileType json set tabstop=2 shiftwidth=2 textwidth=80
+autocmd FileType html set tabstop=2 shiftwidth=2 textwidth=80
 
 fu! _GitGrep(func)
   let tmp1=&grepprg
