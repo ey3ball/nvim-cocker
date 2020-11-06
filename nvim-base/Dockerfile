@@ -49,7 +49,13 @@ ADD config/*.vim $DEV_HOME/.config/nvim/
 # Install extensions for local user
 RUN set -x \
     && echo "Install neovim extensions:" \
-    && nvim +"PlugInstall" +"qall"
+    && nvim +"PlugInstall" +"qall" \
+    && nvim +"CocInstall -sync coc-yaml" +"qall" \
+    && nvim +"CocInstall -sync coc-json" +"qall" \
+    && nvim +"CocInstall -sync coc-dockerfile" +"qall" \
+    && nvim +"CocInstall -sync coc-sh" +"qall" \
+    && nvim +"CocInstall -sync coc-json" +"qall" \
+    && nvim +"CocInstall -sync coc-html" +"qall"
 
 ADD bash.bashrc /etc/bash.bashrc
 
