@@ -6,9 +6,10 @@ RUN apt-get update \
     && pip3 install black jedi pydocstyle flake8 mypy pylint pynvim
 
 RUN apt-get install -y python3-venv
-ADD bashrc /tmp
-RUN cat /tmp/bashrc >> /etc/bash.bashrc
-ADD config/coc-settings.json $DEV_HOME/.config/nvim/coc-settings.json
+RUN apt-get update && apt-get install -y postgresql-client
+COPY --chown=dev:dev config/coc-settings.json $DEV_HOME/.config/nvim/coc-settings.json
+
+ADD entry.sh /entry.sh
 
 USER dev
 RUN set -x \

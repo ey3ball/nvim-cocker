@@ -35,6 +35,7 @@ command! -nargs=* Tl split | lcd %:h | terminal <args>
 
 set nu
 set history=10000
+set shell=/bin/bash
 
 " A bunch of remaps to make vim command mode more readline-like
 cnoremap <C-a> <Home>
@@ -48,6 +49,14 @@ cnoremap <M-f> <S-Right>
 
 " Map Esc so that is exits terminal mode
 tnoremap <Esc> <C-\><C-n>
+
+" Suspend using CTRL-this doesn't work since we don't have a parent interactive
+" shell we could go back to.
+"
+" Remap it to something useful instead - opening a terminal in a new split,
+" which should be close enough
+nnoremap <c-z> <nop>
+map <c-z> :tabnew<CR>:term<CR>:setlocal nu!<ESC>i
 
 let mapleader=","
 

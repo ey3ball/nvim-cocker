@@ -57,7 +57,9 @@ RUN set -x \
     && nvim +"CocInstall -sync coc-json" +"qall" \
     && nvim +"CocInstall -sync coc-html" +"qall"
 
-ADD bash.bashrc /etc/bash.bashrc
+ADD entry.sh /
+ADD env.sh /
 
+ENTRYPOINT [ "/entry.sh" ]
 
 WORKDIR /mnt

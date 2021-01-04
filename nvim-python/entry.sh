@@ -1,6 +1,10 @@
+#!/bin/bash
+
+source /env.sh
+
 if [ ! -z "$DEV_VENV" ]; then
     echo "Activate venv: $DEV_VENV"
     source ~/venv/$DEV_VENV/bin/activate
 fi
 
-PROMPT_COMMAND='[ ! -e /tmp/nvim_run ] && touch /tmp/nvim_run && nvim $NVIM_ARGS'
+nvim $@
