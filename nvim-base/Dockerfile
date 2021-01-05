@@ -32,9 +32,9 @@ RUN echo "Install python" \
     && apt-get install -y python3
 
 RUN echo "Install node, yarn" \
-    && apt-get update \
-    && apt-get install -y --no-install-recommends npm \
-    && npm --unsafe-perm -g install yarn
+    && curl -sL https://deb.nodesource.com/setup_14.x | bash - \
+    && apt-get install -y nodejs \
+    && npm --unsafe-perm -g install npm yarn
 
 # Create default dev user/group
 RUN groupadd -g $DEV_GID dev
