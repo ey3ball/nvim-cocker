@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y postgresql-client
 COPY --chown=dev:dev config/coc-settings.json $DEV_HOME/.config/nvim/coc-settings.json
 
 ADD entry.sh /entry.sh
+ADD requirements.txt $DEV
+COPY --chown=dev:dev requirements.txt $DEV_HOME/requirements.txt
 
 USER dev
 RUN set -x \

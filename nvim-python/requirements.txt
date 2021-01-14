@@ -1,0 +1,7 @@
+black
+jedi
+pydocstyle
+flake8
+mypy
+pylint
+pynvim
