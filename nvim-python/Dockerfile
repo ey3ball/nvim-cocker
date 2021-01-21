@@ -14,8 +14,8 @@ ADD requirements.txt $DEV
 COPY --chown=dev:dev requirements.txt $DEV_HOME/requirements.txt
 
 USER dev
-RUN set -x \
-    && nvim +"CocInstall -sync coc-python" +"qall"
+RUN mkdir ~/.cache
+RUN nvim +"CocInstall -sync coc-python" +"qall"
 
 RUN rm -f $HOME/.config/coc/memos.json \
     && ln -s $HOME/.coconfig/memos.json $HOME/.config/coc/memos.json
